@@ -1,0 +1,22 @@
+meta {
+  name: UpdateTicketCount
+  type: http
+  seq: 3
+}
+
+patch {
+  url: {{AdminUrl}}/UpdateTicketCount
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AdminPassword}}
+}
+
+body:json {
+  {
+    "Id": 1,
+    "Tickets": 21
+  }
+}

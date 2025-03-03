@@ -1,0 +1,42 @@
+services:
+  api:
+    image: raffle/api:latest
+    env_file: 
+      - path: "./.env"
+        required: true
+    volumes:
+      - ../data/api:/app/db/
+    build:
+      context: ../api
+      dockerfile: Dockerfile
+    restart: always
+
+  web:
+    image: raffle/web:latest
+    env_file: 
+      - path: "./.env"
+        required: true
+    build:
+      context: ../web
+      dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+        - METADATA_TITLE=${METADATA_TITLE}
+        - METADATA_DESCRIPTION=${METADATA_DESCRIPTION}
+    depends_on:
+      - api
+    restart: always
+
+  nginx:
+    image: nginx:latest
+    env_file: 
+      - path: "./.env"
+        required: true
+    restart: always
+    depends_on:
+      - api
+      - web
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/dev:/etc/nginx/templates

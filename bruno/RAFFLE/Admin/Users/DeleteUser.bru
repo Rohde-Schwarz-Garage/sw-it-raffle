@@ -1,0 +1,21 @@
+meta {
+  name: DeleteUser
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{AdminUrl}}/DeleteUser
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AdminPassword}}
+}
+
+body:json {
+  {
+    "Id": 2
+  }
+}

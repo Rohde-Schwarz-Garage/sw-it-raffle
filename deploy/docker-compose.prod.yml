@@ -1,0 +1,63 @@
+services:
+  api:
+    container_name: raffle-api
+    image: raffle/api:latest
+    env_file: 
+      - path: "./.env"
+        required: true
+    volumes:
+      - ../data/api:/app/db/
+    build:
+      context: ../api
+      dockerfile: Dockerfile
+    restart: always
+
+  web:
+    container_name: raffle-web
+    image: raffle/web:latest
+    env_file: 
+      - path: "./.env"
+        required: true
+    build:
+      context: ../web
+      dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+        - METADATA_TITLE=${METADATA_TITLE}
+        - METADATA_DESCRIPTION=${METADATA_DESCRIPTION}
+    depends_on:
+      - api
+    restart: always
+
+  nginx:
+    container_name: raffle-nginx
+    image: nginx:latest
+    restart: always
+    env_file: 
+      - path: "./.env"
+        required: true
+    depends_on:
+      - api
+      - web
+    ports:
+      - "80:80"
+      - "443:443"
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+    volumes:
+      - ./nginx/prod:/etc/nginx/templates
+      - ../data/certbot/conf:/etc/letsencrypt
+      - ../data/certbot/www:/var/www/certbot
+
+  certbot:
+    container_name: raffle-certbot
+    image: certbot/certbot:latest
+    env_file: 
+      - path: "./.env"
+        required: true
+    restart: always
+    depends_on:
+      - nginx
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    volumes:
+      - ../data/certbot/conf:/etc/letsencrypt
+      - ../data/certbot/www:/var/www/certbot

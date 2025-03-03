@@ -1,0 +1,5 @@
+/deploy/.env.dev
+/deploy/.env.prod
+/deploy/.env
+data
+**/.idea*

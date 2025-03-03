@@ -1,0 +1,15 @@
+meta {
+  name: GetUsers
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{AdminUrl}}/GetUsers
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AdminPassword}}
+}

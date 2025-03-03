@@ -1,0 +1,15 @@
+meta {
+  name: StartRaffle
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{AdminUrl}}/StartRaffle
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AdminPassword}}
+}

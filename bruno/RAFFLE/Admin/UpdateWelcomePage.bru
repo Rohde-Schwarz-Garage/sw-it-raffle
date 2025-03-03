@@ -1,0 +1,23 @@
+meta {
+  name: UpdateWelcomePage
+  type: http
+  seq: 1
+}
+
+patch {
+  url: {{AdminUrl}}/UpdateWelcomePage
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AdminPassword}}
+}
+
+body:json {
+  {
+    "Title": "Hello, World!",
+    "Description": "A very interesting Description",
+    "Image": "Some Base64 encoded image"
+  }
+}

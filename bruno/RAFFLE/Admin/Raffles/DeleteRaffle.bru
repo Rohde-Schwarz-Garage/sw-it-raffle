@@ -1,0 +1,21 @@
+meta {
+  name: DeleteRaffle
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{AdminUrl}}/DeleteRaffle
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AdminPassword}}
+}
+
+body:json {
+  {
+    "Id": 1
+  }
+}

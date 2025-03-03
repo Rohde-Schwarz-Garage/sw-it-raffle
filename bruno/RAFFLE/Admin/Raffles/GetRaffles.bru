@@ -1,0 +1,15 @@
+meta {
+  name: GetRaffles
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{AdminUrl}}/GetRaffles
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AdminPassword}}
+}

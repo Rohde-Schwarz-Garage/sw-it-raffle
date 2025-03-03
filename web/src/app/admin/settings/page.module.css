@@ -1,0 +1,63 @@
+.settings-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    overflow: hidden;
+}
+
+.settings-form {
+    background: #2e2e2e;
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 90%;
+    max-width: 62.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.settings-form label {
+    font-weight: bold;
+}
+
+.input-field, .textarea-field, .input-file {
+    width: 100%;
+    padding: 0.625rem;
+    margin: 0.625rem 0;
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.25rem;
+    background-color: #3a3a3a;
+    color: white;
+}
+
+.textarea-field {
+    height: 70%;
+    font-family: inherit;
+    overflow-y: auto;
+    resize: none;
+}
+
+.selected-image {
+    max-width: 100%;
+    max-height: 9.375rem;
+    margin-top: 0.625rem;
+    margin-bottom: 0.625rem;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 0.625rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}

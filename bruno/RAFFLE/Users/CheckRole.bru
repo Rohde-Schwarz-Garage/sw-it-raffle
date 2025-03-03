@@ -1,0 +1,19 @@
+meta {
+  name: CheckRole
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{UserUrl}}/CheckRole
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: 0b85f3b7faf82b0f
+}
+
+docs {
+  Takes a user password and checks with the server if the password is valid
+}

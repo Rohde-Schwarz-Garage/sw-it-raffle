@@ -1,0 +1,158 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+    width: 50%;
+    max-height: 90%; /* Maximum height of 90% */
+    background: radial-gradient(circle at center, #214ca88c 30%, #2e2e2e 125%); /* Adjust the size of the circle */
+    border-radius: 0.5rem;
+    overflow: hidden; /* Ensure emojis stay within the container */
+    position: relative; /* Position relative for absolute emojis */
+}
+
+.winnerBox {
+    background-color: #4a4a4a;
+    color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    width: 100%; /* Stretch to full width */
+    height: 20%;
+    align-self: flex-start; /* Align at the top */
+}
+
+.pickWinnerButton {
+    background-color: green;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%; /* Stretch to full width */
+    height: 2.5rem;
+    font-size: 1rem;
+}
+
+.pickWinnerButton:hover {
+    background-color: darkgreen;
+}
+
+.entrySection {
+    width: 100%;
+    background-color: #2e2e2e;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    flex-grow: 1; /* Allow to grow and take available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center between button and container end */
+}
+
+.containerTitle {
+    background-color: #575757;
+    color: white;
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 1.25rem;
+    height: 2.5rem;
+}
+
+.entryListContainer {
+    width: 100%;
+    background-color: #2e2e2e;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    flex-grow: 1; /* Allow to grow and take available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center between button and container end */
+    padding: 0.5rem; /* Adjust padding to accommodate title bar */
+}
+
+.entryList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    overflow-y: auto;
+    height: calc(100% - 2.5rem); /* Adjust height to account for title bar */
+    width: 100%; /* Stretch to full width */
+}
+
+.entry {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    background-color: #3a3a3a;
+}
+
+.entryField {
+    text-align: left;
+    padding: 0.5rem;
+    border: none;
+    background: none;
+    color: white;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.ticketField {
+    text-align: right;
+    flex-grow: 1;
+}
+
+.entryNumber {
+    font-weight: bold;
+}
+
+@keyframes flyAndFade {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-30vh) scale(1.5);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-60vh) scale(0.8);
+    }
+}
+
+@keyframes rainbow {
+    0% { color: red; }
+    14% { color: orange; }
+    28% { color: yellow; }
+    42% { color: green; }
+    57% { color: blue; }
+    71% { color: indigo; }
+    85% { color: violet; }
+    100% { color: red; }
+}
+
+.rainbow {
+    animation: rainbow 1s infinite;
+}
+
+.emoji {
+    position: absolute;
+    animation: flyAndFade 2s forwards;
+    font-size: 1.5rem;
+    pointer-events: none;
+    max-width: 100%; /* Ensure emojis stay within the container */
+    max-height: 100%; /* Ensure emojis stay within the container */
+}
