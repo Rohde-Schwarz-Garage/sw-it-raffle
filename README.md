@@ -1,7 +1,7 @@
 # 🎟️ **RAFFLE**
-**R.A.F.F.L.E.** ist ein Tool, um **Auslosungen** durchzuführen. \
+**R.A.F.F.L.E.** ist ein Tool, um **Auslosungen** durchzuführen, das von Auszubildenden aus dem 1. Lehrjahr entwickelt wurde. \
 Hierfür können sich die Nutzer auf einer dazugehörigen Webseite registrieren.
-Ein Admin übernimmt die Ticketverwaltung und kann somit Nutzern individuell auch mehr Tickets zuweisen, z.B wenn diese Aufgaben durchführen.
+Ein Admin übernimmt die Ticketverwaltung und kann somit Nutzern individuell auch mehr Tickets zuweisen, z.B. wenn diese Aufgaben durchführen.
 Anschließend kann vom Administrator die Auslosung gestartet und ein Gewinner ermittelt werden.
 ## ⚙️ **Setup**
 Aktuell ist es nur möglich, die Webseite mit **Docker Compose** aufzusetzen. Für Kubernetes, etc. stehen keine Konfigurationen zur Verfügung. 
