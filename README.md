@@ -36,7 +36,7 @@ docker compose -f docker-compose.dev.yml -p raffle up -d --build
 ```
 Zum Beenden:
 ```sh
-docker compose -f docker-compose.prod.yml -p raffle down
+docker compose -f docker-compose.dev.yml -p raffle down
 ```
 
 ### **Production**
